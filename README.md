@@ -38,3 +38,38 @@ Verify Python version:
 ```bash
 python3 --version
 
+
+## Installation
+
+sudo apt update && sudo apt upgrade -y
+
+sudo apt install -y \
+  python3-pip \
+  python3-venv \
+  build-essential \
+  libatlas-base-dev \
+  libopenblas-dev \
+  liblapack-dev \
+  libjpeg-dev \
+  libpng-dev \
+  libtiff-dev \
+  libavcodec-dev \
+  libavformat-dev \
+  libswscale-dev \
+  libopencv-dev \
+  v4l-utils \
+  ffmpeg \
+  curl
+### Verify camera is detected
+ls /dev/video*
+
+### Expected output:
+/dev/video0
+
+### List camera details
+v4l2-ctl --list-devices
+
+ffplay /dev/video0
+
+
+
