@@ -71,5 +71,25 @@ v4l2-ctl --list-devices
 
 ffplay /dev/video0
 
+### Python Install
+python3 -m venv venv
+source venv/bin/activate
+
+### Pip Install
+pip install --upgrade pip setuptools wheel
+
+### Ultralytics Install
+pip install ultralytics opencv-python requests numpy
+
+
+## Running application
+Enable source
+In bash:
+- source venv/bin/activate
+- python dog_relay_yolov8.py
+
+
+
+
 
 
