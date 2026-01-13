@@ -1,7 +1,6 @@
 """
 YOLOv8 Dog Detection Relay Trigger
 
-Copyright (C) 2026 mrt-ubuntu
 
 This program is free software: you can redistribute it and/or modify
 it under the terms of the GNU Affero General Public License as published by
