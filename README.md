@@ -1,5 +1,9 @@
 # YOLOv8 Dog Detection Relay Trigger (Raspberry Pi 5)
 
+![AGPL v3](https://img.shields.io/badge/License-AGPL%20v3-blue.svg)
+
+This project is licensed under the GNU Affero General Public License v3.0. See [LICENSE](LICENSE).
+
 This project runs **YOLOv8 object detection** on a **USB camera** connected to a **Raspberry Pi 5** and **triggers an HTTP-controlled relay** whenever a **dog** is detected in the camera feed.
 
 - Camera: USB (UVC compliant)
