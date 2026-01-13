@@ -6,7 +6,7 @@ This project is licensed under the GNU Affero General Public License v3.0. See [
 
 This project runs **YOLOv8 object detection** on a **USB camera** connected to a **Raspberry Pi 5** and **triggers an HTTP-controlled relay** whenever a **dog** is detected in the camera feed.
 
-- Camera: USB (UVC compliant)
+- Camera: USB (UVC compliant) OR RTSP
 - Model: YOLOv8 (COCO pretrained)
 - Trigger: HTTP relay (`/relay/on` and `/relay/off`)
 - Platform: Raspberry Pi 5 (64-bit Raspberry Pi OS)
@@ -15,7 +15,7 @@ This project runs **YOLOv8 object detection** on a **USB camera** connected to a
 
 ## Features
 
-- Real-time USB camera feed
+- Real-time USB camera feed OR RTSP
 - YOLOv8 COCO detection (includes `dog`)
 - Relay turns **ON** when a dog is detected
 - Relay turns **OFF** after a configurable timeout
@@ -27,7 +27,7 @@ This project runs **YOLOv8 object detection** on a **USB camera** connected to a
 ## Hardware Requirements
 
 - Raspberry Pi 5 (4GB or 8GB recommended)
-- USB Camera (UVC compatible)
+- USB Camera (UVC compatible) OR POE RTSP camera
 - Network-accessible HTTP relay
 - Stable power supply (≥5V 5A recommended)
 

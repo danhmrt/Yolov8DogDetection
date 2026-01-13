@@ -40,7 +40,11 @@ MIN_RELAY_TOGGLE_INTERVAL = 0.5  # avoid spamming relay
 # ---------------------------
 # Camera configuration
 # ---------------------------
-CAMERA_INDEX = 0              # 0 is usually the first USB camera
+
+# Camera source selection
+USE_RTSP = False  # Set to True to use RTSP feed, False for USB camera
+RTSP_URL = "rtsp://username:password@camera_ip:554/stream"
+CAMERA_INDEX = 0  # 0 is usually the first USB camera
 FRAME_WIDTH = 640
 FRAME_HEIGHT = 480
 
@@ -74,13 +78,18 @@ def main():
     DOG_ID = dog_class_ids[0]
     print(f"[info] Dog class id: {DOG_ID}")
 
-    print("[info] Opening camera...")
-    cap = cv2.VideoCapture(CAMERA_INDEX)
-    if not cap.isOpened():
-        raise RuntimeError(f"Could not open camera index {CAMERA_INDEX}")
 
-    cap.set(cv2.CAP_PROP_FRAME_WIDTH, FRAME_WIDTH)
-    cap.set(cv2.CAP_PROP_FRAME_HEIGHT, FRAME_HEIGHT)
+    print("[info] Opening camera...")
+    if USE_RTSP:
+        print(f"[info] Using RTSP feed: {RTSP_URL}")
+        cap = cv2.VideoCapture(RTSP_URL)
+    else:
+        print(f"[info] Using USB camera index: {CAMERA_INDEX}")
+        cap = cv2.VideoCapture(CAMERA_INDEX)
+        cap.set(cv2.CAP_PROP_FRAME_WIDTH, FRAME_WIDTH)
+        cap.set(cv2.CAP_PROP_FRAME_HEIGHT, FRAME_HEIGHT)
+    if not cap.isOpened():
+        raise RuntimeError(f"Could not open camera source: {'RTSP' if USE_RTSP else CAMERA_INDEX}")
 
     relay_state = False
     last_dog_seen_t = 0.0
